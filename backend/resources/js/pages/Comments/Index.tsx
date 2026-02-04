@@ -24,7 +24,7 @@ function getSentimentVariant(sentiment: string): 'positive' | 'negative' | 'neut
     return sentiment as 'positive' | 'negative' | 'neutral';
 }
 
-export default function Index({ comments, filters }: CommentsPageProps) {
+export default function Index({ comments }: CommentsPageProps) {
     return (
         <Layout>
             <Head title="Comments Analyzer" />
