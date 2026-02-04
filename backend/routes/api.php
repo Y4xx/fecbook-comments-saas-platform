@@ -4,11 +4,16 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FacebookPageController;
+use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+// Facebook Webhooks (public endpoints)
+Route::get('/webhooks/facebook', [WebhookController::class, 'verify']);
+Route::post('/webhooks/facebook', [WebhookController::class, 'handle']);
 
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
